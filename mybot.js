@@ -6,6 +6,7 @@ const fs = require("fs")
 
 client.on("ready", () => {
     console.log("Running");
+    client.user.setActivity('&help')
 });
 
 client.on("message", (message) => {
@@ -67,13 +68,21 @@ client.on("message", (message) => {
                 }
             }
         });
-    } else if (command === "ping") {
+    } else
+    if (command === "ping") {
         message.channel.send("Current bot ping is: " + client.ping);
-    } else if (command === "foo") {
+    } else
+    if (command === "foo") {
         message.channel.send("bar!");
-    } else if (command === "asl") {
-        let [age, sex, location] = args;
-        message.reply(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
+    } else
+    if (command === "asl") {
+        let age = args[0];
+        let sex = args[1];
+        let location = args[2];
+        message.channel.send(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
+    } else
+    if (command === "noob") {
+        message.channel.send(args.join(" ") + " is noob.");
     }
 });
 
