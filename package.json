@@ -10,6 +10,7 @@
   "author": "Georges8431",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.0"
+    "discord.js": "^11.3.0",
+    "xmlhttprequest": "^1.8.0"
   }
 }
