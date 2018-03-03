@@ -79,7 +79,7 @@ client.on("message", (message) => {
         let age = args[0];
         let sex = args[1];
         let location = args[2];
-        message.channel.send(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
+        message.channel.send("Hello " + message.author.toString() + ", I see you're a " + age + " year old " + sex + " from " + location + " . Wanna date?");
     } else
     if (command === "noob") {
         message.channel.send(args.join(" ") + " is noob.");
