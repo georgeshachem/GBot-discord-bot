@@ -2,10 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
 
-//points database
-const sql = require("sqlite");
-sql.open("./score.sqlite");
-
 const config = require("./config.json");
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
@@ -27,14 +23,10 @@ client.on("message", message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    //update points
-    let commandFile = require(`./commands/points/updatePoints.js`);
-    commandFile.run(client, message, args, sql, config);
-
     // The list of if/else is replaced with those simple 2 lines:
     try {
         let commandFile = require(`./commands/normal/${command}.js`);
-        commandFile.run(client, message, args, sql);
+        commandFile.run(client, message, args);
     } catch (err) {
         console.error(err);
         message.channel.send("Command not supported! Type " + config.prefix + "help for a list of what's available.");
