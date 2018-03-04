@@ -3,6 +3,17 @@ const client = new Discord.Client();
 const fs = require("fs");
 
 const config = require("./config.json");
+require("./modules/functions.js")(client);
+
+//enamp points
+const Enmap = require("enmap");
+const EnmapLevel = require("enmap-level");
+const pointProvider = new EnmapLevel({
+    name: "points"
+});
+client.points = new Enmap({
+    provider: pointProvider
+});
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
 fs.readdir("./events/", (err, files) => {
@@ -17,6 +28,7 @@ fs.readdir("./events/", (err, files) => {
 
 client.on("message", message => {
     if (message.author.bot) return;
+    client.pointsMonitor(client, message);
     if (message.content.indexOf(config.prefix) !== 0) return;
 
     // This is the best way to define args. Trust me.
