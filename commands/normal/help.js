@@ -8,18 +8,18 @@ exports.run = (client, message, args) => {
             },
             title: "GBot Help Menu",
             url: "https://github.com/georgeshachem",
-            description: "Click [here](https://github.com/georgeshachem) for more information. ```\nStill in beta testing!```",
+            description: "Click [here](https://github.com/georgeshachem) for more information. ```\nStill in beta testing! More features to come!```",
             fields: [{
                     name: "🤔Normal Commands",
-                    value: "ping | foo | asl"
+                    value: "ping | chucknorris | dice | invitelink | noob"
                 },
                 {
-                    "name": "😱Admin Commands",
+                    "name": "😱Admin Commands - not activated yet",
                     "value": "prefix | say"
                 },
                 {
-                    "name": "🙄More to come",
-                    "value": "I'm still working on adding more"
+                    "name": "🙄Points System",
+                    "value": "points | level"
                 }
             ],
             timestamp: new Date(),
